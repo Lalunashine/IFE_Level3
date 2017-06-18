@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task 3_1</title>
+    <style type="text/css">
+    * {
+        font-family: '微软雅黑', sans-serif;
+        font-size: 16px;
+    }
+    
+    table {
+        margin: 0 auto;
+    }
+    
+    table td {
+        display: inline-block;
+        min-width: 30px;
+        margin: 0 10px;
+    }
+    
+    #name {
+        width: 250px;
+        height: 30px;
+    }
+    
+    #button {
+        background-color: rgb(52, 122, 183);
+        color: white;
+        font-size: 16px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    span {
+        color: grey;
+        font-size: 12px;
+        margin-left: 3px;
+    }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label for="name">名称</label>
+                </td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+                <td>
+                    <input type="button" id="button" value="验证">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <span>必填，长度为4~16个字符</span>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+    window.onload = function() {
+        var input = document.getElementById('name');
+        var comment = document.getElementsByTagName('span')[0];
+
+        function inputLength(str) {
+            var arr = str.split('');
+            var isMatch = [];
+            var chnArr = [];
+
+            for (var i = 0; i < arr.length; i++) {
+                isMatch[i] = arr[i].match(/[\u4e00-\u9fa5，。、；’【】、·]/g); //匹配中文及符号
+                if (isMatch[i] !== null) {
+                    chnArr.push(isMatch[i]);
+                }
+            }
+            // console.log('str len: ' + str.length);
+            // console.log('chnStr: ' + chnArr);
+            // console.log(str.length + chnArr.length);
+            return str.length + chnArr.length;
+        }
+
+        function validate() {
+            if (input.value == '') {
+                input.style.border = "1px solid red";
+                comment.innerText = "姓名不能为空";
+            } else {
+                var len = inputLength(input.value);
+                if (len > 3 && len < 17) {
+                    input.style.border = "1px solid green";
+                    comment.innerText = "名称格式正确";
+                    comment.style.color = "green";
+                } else {
+                    input.style.border = "1px solid red";
+                    comment.innerText = "名称格式不正确，长度必须为4~16个字符";
+                    comment.style.color = "red";
+                }
+            }
+        }
+
+        var button = document.getElementById('button');
+        button.onclick = validate;
+    }
+    </script>
+</body>
+
+</html>
