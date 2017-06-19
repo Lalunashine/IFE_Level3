@@ -12,4 +12,4 @@
 | task                      | details(x)                                  | demo(y)   |
 | -------------             | :-------------:                                   | :-------------:| 
 | 1. 表单（一）单个表单项的检验 | [- 97 -](http://ife.baidu.com/course/detail/id/97)| [- 1 -]( http://lalunashine.github.io/IFE_Level3/Task3_1/task3_1.html)|
-| 2. 表单（二）多个表单项的动态校验 | [- 101 -](http://ife.baidu.com/course/detail/id/101)| [- / -]( http://lalunashine.github.io/IFE_Level3/Task3_2/task3_2.html)|
+| 2. 表单（二）多个表单项的动态校验 | [- 101 -](http://ife.baidu.com/course/detail/id/101)| [- 2 -]( http://lalunashine.github.io/IFE_Level3/Task3_2/task3_2.html)|
