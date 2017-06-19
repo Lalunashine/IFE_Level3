@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task 3_3</title>
+    <style type="text/css">
+    * {
+        font-family: '微软雅黑', sans-serif;
+        font-size: 16px;
+    }
+    
+    form {
+        width: 600px;
+        margin: 0 auto;
+    }
+    
+    div:first-child {
+        width: 400px;
+        margin: 30px auto;
+    }
+    
+    div:first-child input:last-child {
+        margin-left: 150px;
+    }
+    
+    div:nth-child(2) {
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 40px;
+    }
+    
+    div select {
+        width: 200px;
+        height: 30px;
+        margin: 0 20px;
+    }
+
+    #colleage {
+    	width: 150px;
+    }
+
+    div:last-child {
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 20px;
+    }
+    div:last-child input {
+    	width: 380px;
+    	height: 30px;
+    	margin-left: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div>
+            <input type="radio" name="who" id="in" checked="checked">在校生
+            <input type="radio" name="who" id="out">非在校生
+        </div>
+        <div>
+            <label for="colleage">学校</label>
+            <select id="colleage">
+                <option value="beijing" selected="selected">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="wuhan">武汉</option>
+            </select>
+            <select>
+                <option value="bjxx">北京 xx 大学</option>
+                <option value="bjyy">北京 yy 大学</option>
+                <option value="bjzz">北京 zz 大学</option>
+            </select>
+            <select style="display: none;">
+                <option value="shxx">上海 xx 大学</option>
+                <option value="shyy">上海 yy 大学</option>
+                <option value="shzz">上海 zz 大学</option>
+            </select>
+            <select style="display: none;">
+                <option value="whxx">武汉 xx 大学</option>
+                <option value="whyy">武汉 yy 大学</option>
+                <option value="whzz">武汉 zz 大学</option>
+            </select>
+        </div>
+        <div style="display: none;">
+            <label for="company">就业单位</label>
+            <input type="text" id="company" name="company">
+        </div>
+    </form>
+    <script type="text/javascript">
+    window.onload = function() {
+        var inColleage = document.getElementById('in');
+        var outColleage = document.getElementById('out');
+        var inMsg = document.getElementsByTagName('div')[1];
+        var outMsg = document.getElementsByTagName('div')[2];
+
+        var cities = document.getElementById('colleage');
+        var choices = document.getElementsByTagName('select');
+
+        inColleage.onclick = function() {
+            inMsg.style.display = "block";
+            outMsg.style.display = "none";
+        }
+
+        outColleage.onclick = function() {
+            inMsg.style.display = "none";
+            outMsg.style.display = "block";
+        }
+
+        cities.onchange = function() { //1st select onchange
+            switch (cities.value) { // select option's value
+                case 'beijing':
+                    choices[1].style.display = "inline-block";
+                    choices[2].style.display = "none";
+                    choices[3].style.display = "none";
+                    break;
+                case 'shanghai':
+                    choices[1].style.display = "none";
+                    choices[2].style.display = "inline-block";
+                    choices[3].style.display = "none";
+                    break;
+                case 'wuhan':
+                    choices[1].style.display = "none";
+                    choices[2].style.display = "none";
+                    choices[3].style.display = "inline-block";
+                    break;
+            }
+        }
+
+    }
+    </script>
+</body>
+
+</html>
