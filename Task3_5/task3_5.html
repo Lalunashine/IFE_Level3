@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task 3_5</title>
+    <style type="text/css">
+    div, form {
+        width: 600px;
+        margin: 30px;
+    }
+    
+    table, th, td {
+        border-collapse: collapse; /* must for 3 */
+    }
+    
+    table tr th {
+        border-bottom: 2px solid black; /* top line */
+    }
+    
+    table td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        padding: 0;
+        border: 1px solid grey;
+    }
+    
+    table tr td:first-child {
+        border: none;
+        border-right: 2px solid black; /* left line */
+    }
+    
+    table tr td:last-child {
+        border-right: 2px solid black; /* right line */
+    }
+    
+    table tr:last-child td {
+        border-bottom: 2px solid black; /* bottom line */
+    }
+    
+    form input:first-child, p {
+        width: 300px;
+        margin-left: 40px;
+    }
+    
+    .grid {
+        background-color: red;
+        border: none;
+        position: absolute;
+        top: 216px;
+        left: 244px;
+        transition: all 0.5s ease-in;
+    }
+    
+    .bar {
+        background-color: blue;
+        display: inline-block;
+        width: 100%;
+        height: 33%;
+        vertical-align: top;
+    }
+    /*    
+    .rotate {
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    
+    .translate {
+        -ms-transform: translateX(41px);
+        -webkit-transform: translateX(41px);
+        transform: translateX(41px);
+    }
+     */
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <th style="border: none"></th>
+                    <!-- left top -->
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                </tr>
+                <tr class="row1">
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row2">
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row3">
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row4">
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row5">
+                    <td>5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row6">
+                    <td>6</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row7">
+                    <td>7</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row8">
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row9">
+                    <td>9</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="row10">
+                    <td style="border-bottom: none">10</td>
+                    <!-- left bottom -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <form>
+        <input type="text" id="command" placeholder="input 1 command below...">
+        <input type="button" name="do" value="执行">
+        <p>4-roup commands:
+            <br> go<br> turn left, turn right, turn back<br>hop left, hop right, hop top, hop bottom<br>
+            move left, move right, move top, move bottom</p>
+    </form>
+    
+    <script type="text/javascript">
+    window.onload = function() {
+        // move block
+        var command = document.getElementsByTagName('input')[0];
+        var goButton = document.getElementsByTagName('input')[1];
+        var blueDirect = 0; // blue towards up
+
+        // show red and blue block
+        var row = document.getElementsByTagName('tr');
+        var col = document.getElementsByTagName('th');
+        var grid = row[5].getElementsByTagName('td')[5]; // initial place
+        var bar = document.createElement('span');
+        grid.className = 'grid'; // red
+        bar.className = 'bar'; // blue
+        grid.appendChild(bar);
+        var top = 216; // absoluting positioning top value
+        var left = 244; // absoluting positioning left value
+
+        function gridGo(direction) { // move according parameter
+            // console.log('direc: ' + direction + ', remainder: ' + direction % 4);
+            switch (direction % 4) { // use % to loop 4 directions
+                case 0: // up                    
+                    if (top > 52) {
+                        top -= 41;
+                        grid.style.top = top + 'px';
+                    } else {
+                        alert('Reach Boundary! Try to turn back!');
+                    }
+                    break;
+                case 1: // right
+                case -3: // right                    
+                    if (left < 419) {
+                        left += 41;
+                        grid.style.left = left + 'px';
+                    } else {
+                        alert('Reach Boundary! Try to turn back!');
+                    }
+                    break;
+                case 2: // down
+                case -2: // down
+                    if (top < 421) {
+                        top += 41;
+                        grid.style.top = top + 'px';
+                    } else {
+                        alert('Reach Boundary! Try to turn back!');
+                    }
+                    break;
+                case 3: // left
+                case -1: // left                   
+                    if (left > 90) {
+                        left -= 41;
+                        grid.style.left = left + 'px';
+                    } else {
+                        alert('Reach Boundary! Try to turn back!');
+                    }
+                    break;
+            }
+            // console.log('top: ' + top + ' left：' + left);
+        }
+
+        function gridTurn(bluePos) { // only rotate
+            switch (bluePos) {
+                case 'turn right':
+                    blueDirect += 1; // 累加
+                    grid.style.transform = "rotate(" + 90 * blueDirect + "deg)"; // 累加                    
+                    break;
+                case 'turn back':
+                    blueDirect += 2; // 累加
+                    grid.style.transform = "rotate(" + 90 * blueDirect + "deg)"; // 累加    
+                    break;
+                case 'turn left':
+                    blueDirect -= 1; // 累加
+                    grid.style.transform = "rotate(" + 90 * blueDirect + "deg)"; // 累加    
+                    break;
+            }
+        }
+
+        function gridHop() { // only move
+            switch (command.value) {
+                case 'hop top':
+                    gridGo(0);
+                    break;
+                case 'hop right':
+                    gridGo(1);
+                    break;
+                case 'hop bottom':
+                    gridGo(2);
+                    break;
+                case 'hop left':
+                    gridGo(3);
+                    break;
+            }
+        }
+
+        function gridMove() { // rotate + move         
+            switch (command.value) {
+                case 'move top':
+                    grid.style.transform = "rotate(0deg)"; // rotate 效果不累加， 与 gridTurn 不同
+                    setTimeout(function() {
+                        gridGo(0);
+                    }, 1000);
+                    break;
+                case 'move right':
+                    grid.style.transform = "rotate(90deg)"; // rotate 效果不累加， 与 gridTurn 不同
+
+                    setTimeout(function() {
+                        gridGo(1);
+                    }, 1000);
+                    break;
+                case 'move bottom':
+                    grid.style.transform = "rotate(180deg)"; // rotate 效果不累加， 与 gridTurn 不同
+                    setTimeout(function() {
+                        gridGo(2);
+                    }, 1000);
+                    break;
+                case 'move left':
+                    grid.style.transform = "rotate(-90deg)"; // rotate 效果不累加， 与 gridTurn 不同
+                    setTimeout(function() {
+                        gridGo(3);
+                    }, 1000);
+                    break;
+            }
+        }
+
+        goButton.onclick = function() {
+            var cmd = command.value;
+            if (cmd == 'go') {
+                gridGo(blueDirect);
+            } else if (cmd.includes('turn')) {
+                gridTurn(cmd);
+            } else if (cmd.includes('hop')) {
+                gridHop();
+            } else if (cmd.includes('move')) {
+                gridMove();
+            }
+        }
+
+        ///* task3_4 重构的原因：transform 里的 rotate 和 translate 会互相干扰，所以要分离 rotate 和 move    
+        // 
+        // move: 表格不好操作只能当做背景，translate会干扰，最后用绝对定位的top和value移位
+        // only move: gridGo(), gridHop() --- 参照蓝块 or 浏览器
+        // 
+        // rotate: transform，注意区别是否累加，连续左转是否会逆转
+        // grid.style.transform += "rotate(90deg)"; // left, right的第四次旋转，逆时针；不影响一起的translate
+        // grid.style.transform = "rotate(" + 90 * blueDirect + "deg) "; // 累加的旋转没问题；但会影响translate
+        // only rotate: goTurn()
+        // rotate + move: goMove()
+        // 
+        // last problem: below not work well...
+        // var left = Number(grid.style.left.replace('px', ''));
+        //  var top = Number(grid.style.top.replace('px', ''));
+        //*/
+    }
+    </script>
+</body>
+
+</html>
